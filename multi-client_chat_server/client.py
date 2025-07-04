@@ -1,17 +1,21 @@
 import socket
 import threading
+import sys
 
 def receive_messages(client):
     while True:
         try:
             message = client.recv(1024)
             if not message:
-                print("Disconnected from server.")
+                print("\nDisconnected from server.")
                 break
-            print(f"\n{message.decode('utf-8')}\n> ", end='')
+
+            sys.stdout.write(f"\r{message.decode('utf-8')}\n> ")
+            sys.stdout.flush()
         except:
             print("\nError receiving message. Connection closed.")
             break
+
 
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
