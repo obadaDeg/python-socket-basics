@@ -8,9 +8,9 @@ def receive_messages(client):
             if not message:
                 print("Disconnected from server.")
                 break
-            print(message.decode('utf-8'))
+            print(f"\n{message.decode('utf-8')}\n> ", end='')
         except:
-            print("Error receiving message from server.")
+            print("\nError receiving message. Connection closed.")
             break
 
 def main():
@@ -20,14 +20,10 @@ def main():
     nickname = input("Enter your nickname: ")
     client.sendall(nickname.encode('utf-8'))
 
-    # Start receiver thread
-    receive_thread = threading.Thread(target=receive_messages, args=(client,))
-    receive_thread.daemon = True
-    receive_thread.start()
+    threading.Thread(target=receive_messages, args=(client,), daemon=True).start()
 
-    # Send messages
     while True:
-        message = input("Type a message to send (or 'exit' to quit): ")
+        message = input("> ")
         if message.lower() == 'exit':
             break
         client.sendall(message.encode('utf-8'))
