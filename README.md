@@ -30,7 +30,8 @@ A simple Python-based chat server and client that supports multiple users commun
 
 ## 📸 Screenshot
 
-![Chat Screenshot](multi-client_chat_server/docs/chat_screenshot.png)
+![Chat Screenshot](multi-client_chat_server/docs/cli.png)
+![Chat (GUI version) Screenshot](multi-client_chat_server/docs/gui.jpg)
 
 > 📌 Place your terminal screenshot inside the `docs/` folder and rename it to `chat_screenshot.png`.
 
@@ -45,6 +46,3 @@ A simple Python-based chat server and client that supports multiple users commun
 - Simple terminal-based interface
 
 ---
-
-## 📁 Project Structure
-
