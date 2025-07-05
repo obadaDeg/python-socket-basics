@@ -12,7 +12,7 @@ file_path = 'cyber_notes/3-7-2025.md'
 
 metadata = {}
 
-metadata['file_size'] = os.path.getsize(filename=file_path)
+metadata['file_size'] = os.path.getsize(file_path)
 file_name, file_type = os.path.splitext(file_path)
 metadata['file_name'] = file_name
 metadata['file_type'] = file_type
