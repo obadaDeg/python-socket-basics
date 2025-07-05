@@ -1,6 +1,8 @@
 import socket
 import os
 import threading
+import json
+from utils import hash_file
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -15,6 +17,16 @@ try:
     while True:
         try:
             client, address = server.accept()
+            
+            metadata = b''
+            while not metadata.endswith(b'\n'):
+                chunk = client.recv(1)
+                if not chunk:
+                    break
+                metadata += chunk
+                
+            print(metadata)
+            
             os.makedirs(os.path.join(received_path), exist_ok=True)
             with open(received_path + "file.md", 'wb') as file:
                 while True:
