@@ -109,3 +109,15 @@ File received but hash doesn’t match	File is corrupted but not caught if check
 
 
 
+
+
+future enhancements:
+Multi-client support with threads
+
+Progress bar / CLI interaction
+
+Resume interrupted transfer
+
+Encrypted file/metadata
+
+Multi-file/folder transfer
